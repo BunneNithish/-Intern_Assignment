@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Intern Assignment</title>
-</head>
+  <style>
+    :root{--bg1:#f6f8ff;--bg2:#e9f0ff;--accent:#4f46e5;--muted:#6b7280}
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%;margin:0;overflow-x:hidden}
+    body{font-family: "Segoe UI", Roboto, Arial, sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#0f172a;display:flex;align-items:center;justify-content:center;padding:32px}
+    .app{width:100%;max-width:900px;background:#ffffff;border-radius:12px;box-shadow:0 10px 30px rgba(16,24,40,0.08);padding:24px;display:flex;flex-direction:column;gap:18px}
+    .header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    h1{font-size:1.25rem;margin:0;color:var(--accent)}
+    .instructions{color:var(--muted);font-size:0.95rem}
+    #upload{padding:10px 16px;border-radius:8px;border:1px dashed #dbeafe;background:transparent;cursor:pointer;color:var(--accent)}
+    #upload:hover{border-color:#a5b4fc;background:rgba(79,70,229,0.04)}
+    canvas{display:block;width:100%;max-width:100%;height:auto;max-height:420px;border-radius:8px;background:#fff;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .footer{display:flex;justify-content:flex-end;color:var(--muted);font-size:0.85rem}
+    @media (max-width:480px){.app{padding:16px}h1{font-size:1.05rem}}
+  </style> 
+</head> 
 <body>
 
-  <input type="file" id="upload" />
+  <main class="app">
+    <div class="header">
+      <h1>Intern Assignment</h1>
+      <div class="instructions">Upload an XLSX file to plot data.</div>
+    </div>
+
+    <input type="file" id="upload" />
+
+    <canvas id="chart" width="400" height="200"></canvas>
+
+    <div class="footer">Chart powered by Chart.js • XLSX parsing with SheetJS</div>
+  </main>
 
   <!-- XLSX library -->
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<canvas id="chart" width="400" height="200"></canvas>
 
   <!-- Your logic -->
   <script src="script.js"></script>
